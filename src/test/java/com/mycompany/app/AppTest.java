@@ -37,14 +37,23 @@ public class AppTest
     {
         assertTrue( true );
     }
-    public void testFound() {
+    public void testSameNumber() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       assertTrue(new App().dividedBy(array, 3, 3));
     }
 
-    public void testNotFound() {
+    public void testNotEqualDivided() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       assertFalse(new App().dividedBy(array, 3, 2));
+    }
+    public void testEqualDivided() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(3, 4, 5, 6, 8, 9));
+      assertTrue(new App().dividedBy(array, 3, 2));
+    }
+	
+    public void testNoDividedElement() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertTrue(new App().dividedBy(array, 6, 5));
     }
 
     public void testNull() {
