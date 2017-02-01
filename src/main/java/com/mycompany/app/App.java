@@ -12,14 +12,19 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
-      System.out.println("inside search");
+    public static boolean dividedBy(ArrayList<Integer> array, int e, int a) {
+
       if (array == null) return false;
+      int second=0;
+      int third=0;
 
       for (int elt : array) {
-        if (elt == e) return true;
+        if (elt % e) second++;
       }
-      return false;
+      for (int elt : array) {
+        if (elt % a) third++;
+      }
+      return second==third;
     }
 
     public static void main(String[] args) {
@@ -45,8 +50,11 @@ public class App
 
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
+	  
+	  String input3 = req.queryParams("input3").replaceAll("\\s","");
+          int input3AsInt = Integer.parseInt(input3);
 
-          boolean result = App.search(inputList, input2AsInt);
+          boolean result = App.Divided(inputList, input2AsInt, input3AsInt);
 
          Map map = new HashMap();
           map.put("result", result);
@@ -62,6 +70,7 @@ public class App
             },
             new MustacheTemplateEngine());
     }
+    
 
     static int getHerokuAssignedPort() {
         ProcessBuilder processBuilder = new ProcessBuilder();
