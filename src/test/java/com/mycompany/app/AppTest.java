@@ -3,7 +3,9 @@ package com.mycompany.app;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import java.util.*;
+import java.util.Arrays;
+import java.util.ArrayList;
+
 /**
  * Unit test for simple App.
  */
@@ -37,20 +39,15 @@ public class AppTest
     }
     public void testFound() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertTrue(new App().search(array, 4));
+      assertTrue(new App().dividedBy(array, 3, 3));
     }
 
     public void testNotFound() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(new App().search(array, 5));
-    }
-
-    public void testEmptyArray() {
-      ArrayList<Integer> array = new ArrayList<>();
-      assertFalse(new App().search(array, 1));
+      assertFalse(new App().dividedBy(array, 3, 2));
     }
 
     public void testNull() {
-      assertFalse(new App().search(null, 1));
+      assertFalse(new App().dividedBy(null, 1, 2));
     }
 }

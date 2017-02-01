@@ -19,10 +19,10 @@ public class App
       int third=0;
 
       for (int elt : array) {
-        if (elt % e) second++;
+        if (elt % e==0) second++;
       }
       for (int elt : array) {
-        if (elt % a) third++;
+        if (elt % a==0) third++;
       }
       return second==third;
     }
@@ -54,7 +54,7 @@ public class App
 	  String input3 = req.queryParams("input3").replaceAll("\\s","");
           int input3AsInt = Integer.parseInt(input3);
 
-          boolean result = App.Divided(inputList, input2AsInt, input3AsInt);
+          boolean result = App.dividedBy(inputList, input2AsInt, input3AsInt);
 
          Map map = new HashMap();
           map.put("result", result);
